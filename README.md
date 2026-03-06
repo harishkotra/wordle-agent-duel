@@ -16,6 +16,11 @@ Wordle Agent Duel is an open-source competitive Wordle solver that pits **two au
 
 Watch the AI think in real-time through a sequential thought process display, track retries and errors, and see who cracks the code first.
 
+<img width="1692" height="2205" alt="screencapture-localhost-3000-2026-03-06-11_48_56" src="https://github.com/user-attachments/assets/d6d8807c-8803-4d78-b925-18882951c644" />
+<img width="1692" height="1359" alt="screencapture-localhost-3000-2026-03-06-11_48_08" src="https://github.com/user-attachments/assets/28581394-6194-4106-92a6-8b16e78c32db" />
+<img width="1692" height="1278" alt="screencapture-localhost-3000-2026-03-06-11_47_51" src="https://github.com/user-attachments/assets/8551a0a2-cb5c-4500-b9e9-77c963fa8c33" />
+<img width="1692" height="1278" alt="screencapture-localhost-3000-2026-03-06-11_47_45" src="https://github.com/user-attachments/assets/75237087-5643-4481-81b0-31e5cd52ba40" />
+
 ## ✨ Features
 
 | Feature | Description |
