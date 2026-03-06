@@ -186,7 +186,3 @@ npm run build    # Production build
 npm run lint     # TypeScript type checking
 npm run preview  # Preview production build
 ```
-
-## 📄 License
-
-MIT — use it, fork it, build something cool!
