@@ -3,21 +3,23 @@ import { GuessResult, LetterState } from '../constants';
 import { motion } from 'motion/react';
 
 interface WordleBoardProps {
-  guesses: { guess: string; result: GuessResult[] }[];
+  guesses: { guess: string; result: GuessResult[], thought?: string }[];
   maxGuesses: number;
   isWinner: boolean;
   isGameOver: boolean;
   agentName: string;
   isThinking: boolean;
+  retries?: number;
 }
 
-const WordleBoard: React.FC<WordleBoardProps> = ({ 
-  guesses, 
-  maxGuesses, 
-  isWinner, 
-  isGameOver, 
+const WordleBoard: React.FC<WordleBoardProps> = ({
+  guesses,
+  maxGuesses,
+  isWinner,
+  isGameOver,
   agentName,
-  isThinking 
+  isThinking,
+  retries = 0
 }) => {
   const rows = Array(maxGuesses).fill(null);
 
@@ -26,7 +28,7 @@ const WordleBoard: React.FC<WordleBoardProps> = ({
       <div className="flex justify-between w-full mb-4 items-center">
         <h3 className="font-mono text-sm uppercase tracking-widest text-white/50">{agentName}</h3>
         {isThinking && (
-          <motion.div 
+          <motion.div
             animate={{ opacity: [0.3, 1, 0.3] }}
             transition={{ repeat: Infinity, duration: 1.5 }}
             className="text-[10px] font-mono text-emerald-400 uppercase"
@@ -68,6 +70,32 @@ const WordleBoard: React.FC<WordleBoardProps> = ({
             </div>
           );
         })}
+      </div>
+
+      {/* Retries and Thoughts UI */}
+      <div className="w-full mt-6 space-y-3">
+        {retries > 0 && (
+          <div className="flex justify-between items-center px-4 py-2 bg-red-500/10 border border-red-500/20 rounded-lg">
+            <span className="text-xs font-mono uppercase text-red-400">Total Retries / Errors</span>
+            <span className="text-sm font-bold text-red-400">{retries}</span>
+          </div>
+        )}
+
+        {guesses.length > 0 && guesses.some(g => g.thought) && (
+          <div className="w-full p-4 bg-black/40 border border-white/10 rounded-xl overflow-hidden shadow-inner flex flex-col gap-4">
+            <h4 className="text-[10px] font-mono uppercase tracking-widest text-white/40 border-b border-white/5 pb-2">Sequential Thought Process</h4>
+            <div className="flex flex-col gap-4 max-h-64 overflow-y-auto pr-2 custom-scrollbar">
+              {guesses.map((g, idx) => g.thought && (
+                <div key={idx} className="border-l-2 border-emerald-500/30 pl-3">
+                  <span className="text-[10px] font-bold text-emerald-400/80 mb-1 block uppercase">Guess {idx + 1}</span>
+                  <div className="text-xs text-white/70 leading-relaxed font-mono break-words whitespace-pre-wrap">
+                    {g.thought}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

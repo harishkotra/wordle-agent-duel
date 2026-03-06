@@ -6,3 +6,14 @@ coverage/
 *.log
 .env*
 !.env.example
+.vite/
+*.tsbuildinfo
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+linkedin-post.md 
+blog.md
+x-thread.md
