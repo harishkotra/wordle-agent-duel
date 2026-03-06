@@ -1,0 +1,5 @@
+{
+  "name": "Wordle Agent Duel",
+  "description": "A competitive Wordle solver where two AI agents (Gemini or Ollama) race to solve a puzzle.",
+  "requestFramePermissions": []
+}
